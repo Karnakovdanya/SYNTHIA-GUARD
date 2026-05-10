@@ -28,7 +28,7 @@ header.head-container{
 }
 .container {
     width: 100%; /* Занимаем всё место на мобилках */
-    max-width: 1600px; /* Но не растем шире 1600px на компьютерах */
+    max-width: 80vw; /* Но не растем шире 1600px на компьютерах */
     margin: 0 auto; /* Центрируем, когда сработал max-width */
     display: flex;
     justify-content: space-between;
@@ -208,7 +208,7 @@ header nav ul li.btn a:hover {
 
 .carousel {
     width: 100%;
-    max-width: 1600px;
+    max-width: 80vw;
     margin: 0 auto;
     display: flex;
     Background: rgba(255, 255, 255, 0.1) ;
@@ -272,7 +272,7 @@ header nav ul li.btn a:hover {
 
 form {
     width: 100%;
-    max-width: 1600px;
+    max-width: 80vw;
     margin: 100px auto;
     background: rgba(255, 255, 255, 0.1) ;
     padding: 100px 30px;
@@ -371,7 +371,7 @@ form .forma {
 }
 
 .fform {
-    max-width: 1600px;
+    max-width: 80vw;
     margin: 0 auto;
     width: 100%;
     display: flex;
