@@ -1,0 +1,392 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+.montserrat-<uniquifier> {
+  font-family: "Montserrat", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: <weight>;
+  font-style: normal;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    color: black;
+}
+
+.wrapper {
+    background-image: url(img/Group\ 12x.png);
+    background-size: cover; /* 1. Заставляет картинку растянуться и заполнить весь блок без искажений */
+    background-position: center; /* 2. Центрирует картинку, чтобы самое важное было посередине */
+    background-repeat: no-repeat; /* 3. Чтобы картинка не повторялась, если блок станет больше её самой */
+    max-height: 100vh;  /* 4. ГЛАВНОЕ: задает минимальную высоту блока на весь экран (100% высоты окна) */
+    overflow: hidden;
+}
+
+header.head-container{
+    padding: 30px 0;
+}
+.container {
+    width: 100%; /* Занимаем всё место на мобилках */
+    max-width: 1600px; /* Но не растем шире 1600px на компьютерах */
+    margin: 0 auto; /* Центрируем, когда сработал max-width */
+    display: flex;
+    justify-content: space-between;
+    align-items: center; /* Ровненько по центру (высота) */
+}
+
+.container>h2{
+    text-transform: uppercase;
+    font-size: 30px;
+    letter-spacing: 3px;
+    font-weight: 600;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+header nav ul {
+    display: flex;
+    align-items: center;
+    list-style: none; /* уберает точки */
+    gap: 4vw; /* Отступ будет всегда равен 5% от ширины экрана, Viewport Width (ширина вьюпорта/окна браузера) */
+    z-index: 1;
+    position: relative;
+}
+
+header nav ul li:not(.active):not(.btn) a:hover {
+    border-bottom: #8A2BE2 4px solid;
+}
+
+header nav ul li a{
+    text-decoration: none; /* убирает подчеркивание */
+    font-size: 22px;
+    color: black;
+    font-weight: 600;
+}
+
+header nav ul li.active::after { /*создание виртуального прямоугольница */
+    content:"";
+    display: block;
+    width: 40px;
+    height: 5px;
+    background: linear-gradient(135deg, #8A2BE2, #4B0082);
+    border-radius: 10px;
+    position: relative;
+    top: 5px;
+    left: -15px;
+}
+
+header nav ul li.btn a {
+    background:  #4B0082;
+    padding: 15px 30px;
+    border-radius: 10px;
+    transition: all 800ms ease;
+    color: white;
+    display: inline-block;
+}
+
+header nav ul li.btn a:hover {
+    background: #7B68EE;
+}
+
+/*HERO*/
+
+.hero.container {
+    display: flex;
+    justify-content: space-between;  
+    align-items: center;      /* Двигаем ВСЁ в центр по вертикали */
+    height: 100vh;            /* Высота секции — 90% экрана */
+    position: relative;
+}
+
+#loop {
+    display: flex;
+    position: absolute;
+    top: 10%;
+    width: 100%;
+    font-size: 100px;
+    white-space: nowrap;
+    gap: 1em;
+}
+
+#loop h1 {
+    font-weight: 400;
+    animation-name: anim;
+    animation-duration: 20s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+}
+
+#loop h1 span {
+    -webkit-text-stroke: 1.8px black; /* Рисует только белый контур */
+    color: transparent; /* Делает середину букв прозрачной */
+    font-weight: 500;
+}
+
+@keyframes anim{
+    0% {
+        transform: translateX(0%);
+    }
+    100% {
+        transform: translateX(-100%);
+    }
+}
+
+
+.hero.container img {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* чтобы стояло по цетру */
+}
+
+.hero-info {
+    position: relative;
+    margin-top: 100px;
+}
+
+.hero-info h1{
+    padding: 5px 0 20px 0;
+    font-size: 50px;
+    font-weight: 900;
+}
+
+.hero-info h2{
+    font-size: 30px;
+    font-weight: 600;
+}
+.hero-info p {
+    font-size: 22px;
+    font-weight: 400;
+    padding: 30px 0 50px 0;
+}
+
+.hero-info button, .container button {
+    padding: 15px 30px;
+    border-radius: 10px;
+    background: #4B0082;
+    color: white;
+    transition: all 500ms ease;
+    border: 0;
+    font-size: 15px;
+    font-weight: 600;
+}
+
+.hero-info button:hover, .container button:hover {
+    background: #7B68EE;
+    cursor: pointer;
+    transform: scale(1.1) ;
+}
+
+.hero-info2{
+    position: absolute;
+    right: 3vw;
+    top: 30vw ;
+    background: transparent;
+    backdrop-filter: blur(20px);
+    padding: 40px 30px 40px 60px;
+    border-radius: 10px;
+    border: 2px solid #828786;
+}
+
+.hero-info2 ol li {
+    font-size: 20px;
+    font-weight: 400;
+}
+
+/* Main */
+
+ main {
+    width: 100%;
+    margin: 0 auto;
+    padding: 100px 0;
+    position: relative;
+    background: linear-gradient(to bottom right, #bfc5ca, #e4ecf3);
+}
+
+.carousel {
+    width: 100%;
+    max-width: 1600px;
+    margin: 0 auto;
+    display: flex;
+    Background: rgba(255, 255, 255, 0.1) ;
+    padding: 30px 0;
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+    margin-bottom: 100px;
+    backdrop-filter: blur(20px);
+}
+
+.group {
+    width: max-content;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1em;
+    animation: scroll 30s infinite linear;
+    padding-right: 1em;  /* сдесь была ошибка */
+}
+
+.cards {
+    flex: 0 0 auto;
+    height: 25em;
+    width: 300px;
+    padding: 1em;
+    background: transparent;
+    Background: #D8D8D8 ;
+    backdrop-filter: blur(20px);
+    border: 1px solid #828786;
+    border-radius: 15px;
+    text-align: center;
+    align-content: center;
+    transition: all 800ms ease;
+}
+
+@keyframes scroll {
+    0% {
+        transform: translateX(0%);
+    }
+    100% {
+        transform: translateX(-100%);
+    }
+}
+
+.cards h3 {
+    padding: 30px 0;
+    font-weight: 300;
+}
+
+.carousel:hover .group {
+    animation-play-state: paused;
+    cursor: pointer;
+}
+
+.cards:hover {
+    transform: scale(1.1);
+}
+
+/* Form */
+
+form {
+    width: 100%;
+    max-width: 1600px;
+    margin: 100px auto;
+    background: rgba(255, 255, 255, 0.1) ;
+    padding: 100px 30px;
+    border-radius: 10px;
+    height: 700px;
+    position: relative;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+    border: 2px solid #828786;
+    backdrop-filter: blur(20px);
+}
+
+form .container { 
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+}
+
+form .container img {
+    position: absolute;
+    height: 700px;
+    left: 15%;
+    top: -0.6%;
+}
+
+form .forma {
+    position: absolute;
+    right: 10%;
+    width: 600px;
+}
+
+.forma h2, h3 {
+    text-align: center;
+}
+
+.forma .inline {
+    display: flex;
+    justify-content: space-between;
+}
+
+.forma .inline div {
+    width: 50%;
+}
+
+.forma h3 {
+    margin: 10px 0 40px 0;
+    font-weight: 300;
+}
+
+.container .forma input,
+.container .forma textarea {
+    display: block;
+    width: 90%;
+    border: 2px solid #828786;
+    border-radius: 5px;
+    padding: 10px 10px;
+    Background: rgb(219, 217, 217) ;
+    outline: none;
+    margin-top: 5px;
+    margin-bottom: 20px;
+}
+
+.container .forma .one-line {
+    width: 95%;
+}
+
+.container .forma textarea {
+    resize: none;
+    height: 150px;
+}
+
+.forma label {
+    font-size: 18px;
+}
+
+#particles-js {
+    position: absolute; 
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1;}
+
+.carousel,  #contact-form {
+    position: relative;
+    z-index: 3;
+}
+
+/*Footer*/
+
+.fcontainer {
+    background: rgb(182, 178, 178);
+    width: 100%;
+    height: 400px;
+}
+
+.fform {
+    max-width: 1600px;
+    margin: 0 auto;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 50px 0;
+}
+
+.footer-left h2{
+    text-transform: uppercase;
+    font-size: 30px;
+    letter-spacing: 3px;
+    font-weight: 600;
+    padding-bottom: 10px;
+}
+
+.footer-left h3 {
+    font-weight: 300;
+}
