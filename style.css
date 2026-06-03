@@ -1,0 +1,1624 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+.montserrat-uniquifier { 
+    font-family: "Montserrat", sans-serif; 
+    font-optical-sizing: auto; 
+    font-weight: 300; 
+    font-style: normal; 
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    color: #2B3138;
+}
+
+a {
+    text-decoration:none;
+}
+
+h1, h2, h3, h4, h5, h6, p, span, button, ul li {
+    letter-spacing: 0.5px;
+} 
+
+html, body {
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+}
+
+.wrapper {
+    background-image: linear-gradient(
+    rgba(0, 0, 0, 0.1) 0%), url(img/background.png);
+    background-size: cover; /* 1. Заставляет картинку растянуться и заполнить весь блок без искажений */
+    background-position: center; /* 2. Центрирует картинку, чтобы самое важное было посередине */
+    background-repeat: no-repeat; /* 3. Чтобы картинка не повторялась, если блок станет больше её самой */
+    width: 100%;  
+    min-width: 100%;
+    margin: 0 auto;
+    overflow: hidden;
+    height: 100vh;
+}
+
+header .head-container{
+    padding: 30px 0;
+}
+.container {
+    width: 100%; /* Занимаем всё место на мобилках */
+    max-width: 90vw; 
+    margin: 0 auto; 
+    display: flex;
+    height: auto;
+    justify-content: space-between;
+    align-items: center; 
+}
+
+.container .logo {
+    text-transform: uppercase;
+    font-size: 45px;
+    letter-spacing: 3px;
+    font-weight: 800;
+    background: linear-gradient(90deg, #00F2FE, #1f2a38, #3b4a59, #00F2FE);
+    background-size: 300% auto;
+    font-family: 'Oswald', sans-serif;
+    cursor: pointer;
+
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+    animation: gradientFlow 20s linear infinite;
+}
+
+.fform .logo {
+    text-transform: uppercase;
+    font-size: 35px;
+    letter-spacing: 3px;
+    font-family: 'Oswald', sans-serif;
+    color: #F0F0F0;
+    font-weight: 600;
+}
+
+@keyframes gradientFlow {
+    0% {
+        background-position: 0% 50%;
+    }
+    100% {
+        background-position: 300% 50%;
+    }
+}    
+
+header nav ul {
+    display: flex;
+    align-items: center;
+    list-style: none; 
+    gap: 4vw;
+    z-index: 4;
+    position: relative;
+}
+
+header nav ul li:not(.active):not(.btn) a:hover {
+    border-bottom: #8A2BE2 4px solid;
+}
+
+header nav ul li a{
+    text-decoration: none; /* убирает подчеркивание */
+    font-size: 28px;
+    color: #2B3138;
+    font-weight: 600;
+}
+
+header nav ul li.active::after { /*создание виртуального прямоугольница */
+    content:"";
+    display: block;
+    width: 40px;
+    height: 5px;
+    background: linear-gradient(135deg, #8A2BE2, #4B0082);
+    border-radius: 10px;
+    position: absolute;
+    top: 45px;
+    left: -15px;
+}
+
+header nav ul li.btn a {
+    background:  #4B0082;
+    padding: 15px 30px;
+    border-radius: 10px;
+    transition: all 800ms ease;
+    color: #F0F0F0;
+    display: inline-block;
+    font-size: 25px;
+}
+
+header nav ul li.btn a:hover {
+    background: #7B68EE;
+}
+
+/*HERO*/
+
+.hero.container {
+    display: grid;
+    grid-template-columns: 1.5fr 1.2fr 1.5fr;
+    width: 100%;
+    margin: 0 auto;  
+    height: 100%;       
+    position: relative;
+}
+
+#loop {
+    display: flex;
+    position: absolute;
+    top: 10%;
+    width: 100%;
+    font-size: 100px;
+    white-space: nowrap;
+    gap: 1em;
+}
+
+#loop h1 {
+    font-weight: 400;
+    animation-name: anim;
+    animation-duration: 30s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    font-style: italic;
+}
+
+#loop h1 span {
+    -webkit-text-stroke: 1.8px black; /* Рисует только белый контур */
+    color: transparent; /* Делает середину букв прозрачной */
+    font-weight: 500;
+}
+
+@keyframes anim{
+    0% {
+        transform: translateX(0%);
+    }
+    100% {
+        transform: translateX(-100%);
+    }
+}
+
+.hero.container img {
+    grid-column: 2;
+    justify-self: center;
+    height: 100%;
+    margin-top: -120px;
+    z-index: 2;
+}
+
+.hero-info {
+    grid-column: 1;
+    justify-self: start;
+    position: relative;
+    padding-top: 15vh;
+}
+
+.hero-info h1{
+    padding: 5px 0 15px 0;
+    font-size: 50px;
+    font-weight: 900;
+}
+.hero-info h2{
+    font-size: 40px;
+    font-weight: 600;
+}
+.hero-info p {
+    font-size: 30px;
+    font-weight: 600;
+    padding: 30px 0 50px 0;
+    color: black;
+}
+
+.hero-info button, .container button, .tariff1 button, .tariff2 button, .tariff3 button, .forma button {
+    display: inline-block;
+    padding: 15px 35px;
+    border-radius: 10px;
+    background: #4B0082;
+    color: #F0F0F0;
+    transition: all 500ms ease;
+    border: 0;
+    font-size: 20px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+}
+
+.hero-info button:hover, .container button:hover, .tariff1 button:hover, .tariff2 button:hover, .tariff3 button:hover, .forma button:hover {
+    background: #7B68EE;
+    cursor: pointer;
+    transform: scale(1.1) ;
+}
+
+.hero-info2{
+    grid-column: 3;
+    justify-self: end;
+    position: relative;
+    width: 400px;
+    height: 200px;
+    background: linear-gradient(to right, #F0F0F0, #FFFFFF, #D0E6FF, #A0C4E8, #B0B0B0, #E5E5E5);
+    background-size: 200%;
+    border-radius: 20px;
+    cursor: pointer;
+    animation: animationGradient 3.5s linear infinite;
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
+    margin-top: 30vh;
+}
+
+@keyframes animationGradient {
+  to { background-position: 200%;}
+}
+
+.hero-info2 .list {
+    position: absolute;
+    inset: 5px 5px 5px 5px; 
+    background:  #CFD8E2;
+    border-radius: 20px;
+    padding-left: 60px;
+    display: flex;
+    align-items: center;
+    font-size: 25px;
+}
+
+
+/* Main */
+
+ main {
+    width: 100%;
+    margin: 0 auto;
+    padding: 60px 0 120px 0;
+    position: relative;
+    background: linear-gradient(to bottom right, #bfc5ca, #e4ecf3);
+}
+
+.section {
+    max-width: 90vw;
+    margin: 0 auto;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 60px;
+    text-align: center;
+}
+
+.section h2 {
+    color: #2B3138;
+    font-size: 50px;
+    padding-bottom: 30px;
+    font-weight: 500;
+}
+
+.section p {
+    color: #2B3138;
+    font-size: 30px;
+    letter-spacing: 0.5px;
+}
+
+.line {
+    content: "";
+    display: block;
+    width: 90vw;
+    height: 5px;
+    border-radius: 50%;
+    margin: 0 auto;
+    background: linear-gradient(to right, #F0F0F0, #FFFFFF, #D0E6FF, #A0C4E8, #B0B0B0, #E5E5E5);
+    background-size: 200%;
+    animation: animationGradient 6.5s linear infinite;
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
+}
+
+/* STEPS */
+
+.steps-container {
+    max-width: 90vw;
+    margin: 60px auto 80px auto;
+    display: grid;
+    grid-template-columns: repeat(4, auto);
+}
+
+.step-card{
+    background: rgba(207, 216, 226, 0.8);
+    backdrop-filter: blur(20px);
+    display: grid;         
+    place-items: center;   
+    text-align: center;
+    border: 2px solid #DCE2E8;
+    padding: 30px 20px;
+}
+
+.step-number {
+    font-size: 70px;
+}
+
+.step-card h3 {
+    font-size: 28px;
+    padding: 10px 0 20px 0;
+    font-weight: 600;
+}
+
+.step-card h4 {
+    font-size: 27px;
+}
+
+.step-card p {
+    font-size: 25px;
+    padding-top: 20px;
+}
+
+/*Carousel*/
+
+.carousel {
+    width: 100%;
+    max-width: 90vw;
+    margin: 0 auto;
+    display: flex;
+    background: rgba(255, 255, 255, 0.1) ;
+    padding: 30px 0;
+    overflow: hidden;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+    margin-bottom: 120px;
+}
+
+.group {
+    width: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1em;
+    animation: scroll 50s infinite linear;
+    padding-right: 1em;  /* сдесь была ошибка */
+}
+
+.cards {
+    flex: 0 0 auto;
+    height: 25em;
+    width: 300px;
+    padding: 1em;
+    background: #9FAFBE;
+    border: 2px solid rgba(0, 255, 255, 0.1);
+    border-radius: 15px;
+    text-align: center;
+    align-content: center;
+    transition: all 800ms ease;
+}
+
+@keyframes scroll {
+    0% {
+        transform: translateX(0%);
+    }
+    100% {
+        transform: translateX(-100%);
+    }
+}
+
+.cards h3 {
+    font-size: 28px;
+    padding: 20px 0 10px 0;
+    font-weight: 600;
+}
+
+.cards p {
+    padding: 30px 0;
+    font-weight: 300;
+    font-size: 25px;
+}
+
+.carousel:hover .group {
+    animation-play-state: paused;
+    cursor: pointer;
+}
+
+.cards:hover {
+    transform: scale(1.1);
+}
+
+/* Tariffs */
+
+.wrapper2 {
+    width: 100%;
+    margin:0 auto;
+    height: auto;
+}
+
+.wrapper2>h2 {
+    text-align: center;
+    font-size: 50px;
+    font-weight: 500;
+    padding-bottom: 50px;
+}
+
+.card-front>img {
+  max-width: 100%;
+  margin:10px 0 30px 0;
+}
+
+#section3 {
+  width: 100%;
+  max-width: 80vw;
+  min-height: auto;
+  height: auto;
+  margin: 0 auto;
+  display: flex;
+}
+
+#section3>.container {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  gap: 5vw; 
+}
+
+.tariff1, .tariff2, .tariff3 {
+  display: flex;
+  flex-direction: column;
+  background: transparent;
+  width: 450px; 
+  height: auto; 
+  perspective: 3000px; /* Эффект глубины */
+}
+
+.tariff1:hover .card-inner,
+.tariff2:hover .card-inner,
+.tariff3:hover .card-inner {
+    transform: rotateY(180deg);
+}
+
+.card-inner {
+    position:relative;
+    width: 100%;
+    height: 550px;
+    transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+    transform-style: preserve-3d;
+    cursor: pointer;
+}
+
+.card-front, .card-back {
+    position: absolute; /* делает микс */
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden; /*это прячет */
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+}
+
+.card-back {
+    transform: rotateY(180deg);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0 40px;
+}
+
+.card-back.back-1 {
+    background-image: linear-gradient(rgba(0,0,0,0.5)), url('img/back1.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.card-back.back-2 {
+    background-image:linear-gradient(rgba(0,0,0,0.5)), url('img/back2.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.card-back.back-3 {
+    background-image:linear-gradient(rgba(0,0,0,0.5)), url('img/back3.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.card-front {
+    background: linear-gradient(135deg, #94a3b8 0%, #64748b 100%);
+    /* Тень, чтобы карточка аккуратно отделялась от фона сайта */
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+}
+
+.card-front>h3 {
+  font-size: 40px;
+  padding-top: 20px;
+  font-weight: 400;
+  letter-spacing: 1px;
+}
+
+.card-front>span {
+    font-size: 35px;
+    padding-top: 10px;
+}
+
+.card-back>h4 {
+  font-size: 40px;
+  font-weight: 600;
+  color:#EAF7FF;
+}
+
+.card-back>h5 {
+  font-size: 30px;
+  font-weight: 600;
+  padding: 20px 0 50px 0;
+  color:#EAF7FF;
+}
+
+.card-back>ul li{
+  font-size: 25px;
+  font-weight: 400;
+  color:#EAF7FF;
+  line-height: 1.3;
+}
+
+.tariff1 button, .tariff2 button, .tariff3 button {
+    display: block;
+    margin-top: 60px;
+    margin-left: auto;   
+    margin-right: auto;
+}
+
+.card-back ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+/* Form */
+
+form {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    margin-top: 120px;
+    border-radius: 10px;
+    height: 700px;
+    position: relative;
+    background: linear-gradient(to right, #F0F0F0, #FFFFFF, #D0E6FF, #A0C4E8, #B0B0B0, #E5E5E5);
+    background-size: 200%;
+    animation: animationGradient 6.5s linear infinite;
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
+}
+
+.form-container { 
+    padding: 0 80px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: absolute;
+    border-radius: 10px;
+    inset: 5px 5px 5px 5px;
+    background: linear-gradient(135deg, #a2b0c4 0%, #9FAFBE 100%);
+    /* Тень, чтобы карточка аккуратно отделялась от фона сайта */
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+}
+
+.form-container img {
+    width: 460px;
+    height: auto;
+    margin-top: auto;
+}
+
+form .forma {
+    justify-content: center;
+    width: 500px;
+}
+
+.forma h2, h3 {
+    text-align: center;
+    font-weight: 500;
+    width: 100%;
+}
+
+.forma h2 {
+    font-size: 40px;
+    padding: 20px 0 10px 0;
+}
+
+.forma h3 {
+    font-size: 25px;
+    margin: 10px 0 40px 0;
+}
+
+input::placeholder, textarea::placeholder {
+    font-size: 14px;
+}
+
+.forma .inline {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.forma .inline div {
+    width: 48%;
+}
+
+.form-container .forma input,
+.form-container .forma textarea {
+    display: block;
+    width: 100%;
+    border: 3px solid #DCE2E8;
+    border-radius: 5px;
+    padding: 10px 10px;
+    background: rgba(207, 216, 226, 0.9) ;
+    outline: none;
+    margin-bottom: 20px;
+}
+
+.form-container .forma .one-line {
+    width: 100%;
+}
+
+.form-container  input {
+    height: 50px;
+}
+
+.form-container .forma textarea {
+    resize: none;
+    height: 150px;
+}
+
+.forma button {
+    font-size: 16px;
+    padding: 15px 30px;
+    margin-top: 20px;
+}
+
+#particles-js {
+    position: absolute; 
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1;}
+
+.wrapper2, .carousel,  #contact-form {
+    position: relative;
+    z-index: 3;
+}
+
+/*Footer*/
+
+.fcontainer {
+    background: #1F2A38;
+    width: 100%;
+    height: auto;
+}
+
+.fform {
+    max-width: 90vw;
+    margin: 0 auto;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 50px 0;
+}
+
+.footer-left h3 {
+    font-size: 28px;
+    padding-top: 20px;
+    letter-spacing: 1px;
+    color: #F0F0F0;
+    font-weight: 300;
+}
+
+.footer-right h2 {
+    letter-spacing: 1px;
+    font-size: 28px;
+    text-align: center;
+    color: #F0F0F0;
+    font-weight: 300;
+}
+
+.footer-right {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    font-weight: 300;
+}
+
+.footer-right p, .footer-right strong {
+    font-size: 23px;
+    color: #F0F0F0;
+    letter-spacing: 1px;
+    line-height: 1; 
+    padding-top: 20px;
+}
+
+.rights h3 {
+    margin-top: 80px;
+    padding-bottom: 20px;
+    font-size: 25px;
+    font-weight: 300;
+    color: #F0F0F0;
+    letter-spacing: 1px;
+}
+
+/* Hamburger */
+
+#listnav ul li.regist {
+  display: none;
+}
+
+.navigation {
+    position: relative;
+}
+
+.hamburger {
+    position: relative;
+    width: 20px;
+    height: 4px;
+    background: #F0F0F0;
+    border-radius: 10px;
+    cursor: pointer;
+    z-index: 2;
+    right: 0;
+    transition: 0.3s;
+}
+
+.hamburger:before, .hamburger:after {
+    content: "";
+    position: absolute;
+    height: 4px;
+    right: 0; /*чтобы подогнать под край елемент */
+    background: #F0F0F0;
+    border-radius: 10px;
+    transition: 0.3s;
+}
+
+.hamburger:before {
+    top: -10px;
+    width: 30px;
+}
+
+.hamburger:after {
+    top: 10px;
+    width: 30px;
+}
+
+.toggle-menu {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    top: -15px;
+    z-index: 3;
+    cursor: pointer;
+    right: 0;
+    opacity: 0;
+}
+
+.hamburger, .toggle-menu {
+    display: none;
+} 
+
+.navigation input:checked ~ .hamburger {
+    background: transparent;
+}
+
+.navigation input:checked ~ .hamburger::before,
+.navigation input:checked ~ .hamburger::after {
+    content: "";
+    position: absolute;
+    right: 0;
+    width: 30px;
+    height: 4px;
+    border-radius: 10px;
+    transition: 0.3s;
+}
+
+.navigation input:checked ~ .hamburger::before {
+    top: 0;
+    transform: rotate(-45deg);
+    width: 30px;
+}
+
+.navigation input:checked ~ .hamburger::after {
+    top: 0;
+    transform: rotate(45deg);
+    width: 30px;
+}
+
+.toggle-menu:checked ~ #listnav ul {
+    right: 0;
+}
+
+@media screen and (max-width: 1200px) {
+    .hamburger, .toggle-menu {
+        display: block;
+    } 
+
+.toggle-menu:checked,
+    .toggle-menu:checked ~ .hamburger {
+        z-index: 15;     /* Остается поверх выезжающей шторки */
+    }
+
+
+    .toggle-menu:checked,
+    .toggle-menu:checked ~ .hamburger {
+        position: fixed; 
+        top: 40px;       
+        right: 40px;
+        z-index: 15;     
+    }
+  
+.toggle-menu:checked {
+    position: fixed;
+    top: 20px;   /* Отступ от края экрана телефона */
+    right: 20px;
+    width: 40px;
+    height: 40px;
+    z-index: 15; /* Инпут ОБЯЗАТЕЛЬНО самый верхний, чтобы кликался */
+}    
+
+    .btn {
+      display: none;
+    }
+   
+    #listnav ul{
+        justify-content: start;
+        flex-direction: column;
+        align-items: center;
+        position: fixed;
+        top: 0;
+        right: -150px;
+        transition: 0.3s;
+        background: rgba(0, 0, 0, 0.8);
+        width: 150px;
+        height: 100%;
+        padding-top: 12vh;
+        z-index: 10;
+    }
+    #listnav ul li {
+        width: 100%;
+    }
+    #listnav ul li a {
+        padding: 20px; 
+        color: #F0F0F0;  
+    }
+    #listnav ul li.regist {
+    display: block; /* Или inline-block / flex, смотря как у тебя выстроены пункты */
+  }
+}
+
+@media screen and (max-width: 600px) {
+    .hamburger:before, .hamburger:after, .hamburger {
+        height: 3px;
+    }
+    .hero-info button:hover, .container button:hover, .tariff1 button:hover, 
+    .tariff2 button:hover, 
+    .tariff3 button:hover, 
+    .forma button:hover {
+        background: #4B0082; 
+        transform: scale(1); 
+    }
+    #listnav ul {
+        padding-top: 60px;
+        width: 150px;
+        right: -150px;
+        gap:20px;
+    }
+    #listnav ul li a {
+        font-size: 20px;
+    }
+    h1, h2, h3, h4, h5, span, button, p, ul li {
+        letter-spacing: 0.5px;
+    }
+    header nav ul li.active::after {
+        width: 30px;
+        left: 5px;
+    }
+    header nav ul li:not(.active):not(.btn) a:hover {
+        border-bottom: none;
+    }
+    header.head-container {
+        padding: 20px 0;
+    }
+    .container .logo, .fform .logo {
+        font-size: 30px;
+        letter-spacing: 1px;
+    }
+    .wrapper {
+    background-image: linear-gradient(rgba(0,0,0,0.5)),
+                      url('img/Group 2.png');
+    background-size: cover;
+    background-position: center;
+    overflow: visible;
+    height: auto;
+    }
+    #loop, .hero-info2, .hero.container img {
+        display: none;
+    }
+    .hero.container {
+       display: flex;
+    }
+    .hero-info {
+       display: flex;
+       flex-direction: column;
+       justify-content: center; /* вертикаль */
+       align-items: center;     /* горизонталь */
+       text-align: center;
+    }
+    .hero-info h1{
+       padding: 5px 0 10px 0;
+       font-size: clamp(30px, 23px + 2vw, 35px);
+       color: #F0F0F0;
+    }
+    .hero-info h2{
+       font-size: clamp(23px, 20.2px + 0.8vw, 25px);
+       color: #F0F0F0;
+    }
+    .hero-info p,.hero-info b {
+       font-size: clamp(20px, 17.2px + 0.8vw, 22px);
+       color: #F0F0F0;
+       padding: 15px 0 20px 0;
+    }
+    .hero-info button, .container button, .forma button {
+       padding: 10px 20px;
+       font-size: clamp(15px, 12.2px + 0.8vw, 17px);
+       margin-bottom: 30px;
+       letter-spacing: 0.5px;
+       border-radius: 5px;
+    }
+    main {
+        padding: 40px 0;
+    }
+    .section {
+        margin-bottom: 40px;
+    }
+    .section h2 {
+        font-size: 30px;
+        padding-bottom: 20px;
+        font-weight: 600;
+    }
+    .section p {
+        font-size: 23px;
+    }
+    .steps-container {
+        margin: 40px auto 60px auto;
+        grid-template-rows: repeat(4, auto);
+        grid-template-columns: none;
+        width: 90vw;
+        max-width: 450px;
+    }
+    .step-number {
+        font-size: 40px;
+    }
+    .step-card h3 {
+        font-size: 25px;
+        padding: 5px 0 10px 0;
+    }
+    .step-card h4 {
+        font-size: 24px;
+    }
+    .step-card p {
+        font-size: 22px;
+        padding-top: 15px;
+    }
+    
+    .carousel {
+        overflow-x: auto;
+        scroll-snap-type: x mandatory; 
+        scroll-behavior: smooth;
+        -webkit-overflow-scrolling: touch; /* Плавный скролл на iOS */
+        margin-bottom: 40px;
+    }
+    .carousel .group:first-child {
+        padding-left: 12vw !important;  /* Этот отступ подвинет первую карточку из угла ровно в центр экрана.*/
+    }
+    .group {
+        animation: none;
+        padding-right: 0;
+    }
+    .carousel .group:nth-child(2) {
+        display: none;
+    }
+    .cards {
+        width: 65vw; 
+        max-width: 280px;
+        margin: 0 auto;
+        flex: 0 0 auto;
+        scroll-snap-align: center; /* Центрируем карточку при остановке свайпа */
+        height: auto;
+        min-height: 22em;
+
+        view-timeline-name: --card-scroll;
+        view-timeline-axis: inline;
+        animation-name: active-card-scale;
+        animation-timeline: --card-scroll;
+    }
+    .cards h3 {
+        font-size: 25px;
+        padding: 15px 0 5px 0;
+    }
+    .cards p {
+        font-size: 20px;
+        padding: 15px 0;
+    }
+    .cards:hover {
+        transform: none;
+    }
+
+    @keyframes active-card-scale {
+    0% {
+        transform: scale(0.85);
+        opacity: 0.5;
+    }
+    50% {
+        transform: scale(1);
+        opacity: 1;
+        border-color: rgba(0, 255, 255, 0.6); /* подсветит центральную */
+    }
+    100% {
+        transform: scale(0.85);
+        opacity: 0.5;
+    }
+    } 
+    .wrapper2>h2 {
+        font-size: 30px;
+        padding-bottom: 30px;
+        font-weight: 600;
+    }
+    #section3 {
+        max-width: 90vw;
+        margin: 0 auto;
+    }
+    #section3>.container {
+        flex-direction: column;
+        gap: 10px;
+    }
+    .tariff1, .tariff2, .tariff3 {
+        width: 90vw;
+        max-width: 320px; 
+        margin: 0 auto;
+    }
+    .card-back {
+        padding: 0 20px;
+    }
+    .card-inner {
+        height: 400px;
+    }
+    .card-front>h3 {
+        font-size: 30px;
+        padding-top: 15px;
+        color: black;
+    }
+    .card-front span{
+        color: black;
+        font-size: 30px;
+    }
+    .card-back>h4 {
+        font-size: 30px;
+    }
+    .card-back>h5 {
+        font-size: 25px;
+        padding: 15px 0 30px 0;
+    }
+    .card-back>ul li {
+        font-size: 20px;
+    }
+    .tariff1 button, .tariff2 button, .tariff3 button {
+        margin-top: 30px;
+    }
+    form {
+        width: 90vw;
+        max-width: 400px;
+        margin: 0 auto;
+        margin-top: 20px;
+    }
+    .form-container img {
+        display: none;
+    }
+    .form-container {
+        padding: 0 10px;
+    }
+    form .forma {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+    .forma h2 {
+        font-size: 35px;
+        padding: 20px 0 15px 0;
+    }
+    .forma h3 {
+        font-size: 23px;
+        margin: 0 0 30px 0;
+    }
+    .forma .inline {
+        width: 100%;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    #contact-form input, #contact-form textarea {
+        width: 90%;
+        display: block;
+        margin: 0 auto 20px;
+    }
+    .forma .inline div {
+       width: 100%;
+    }
+    .forma button {
+        margin-bottom: 0;
+    }
+    .fform {
+        flex-direction: column;
+        align-items: center;
+        gap: 60px;
+        padding: 30px 0;
+    }
+    .fform .logo {
+        font-size: 25px;
+        display: block;
+        text-align: center;
+    }
+    .footer-right h2 {
+        font-size: 22px;
+        letter-spacing: 1px;
+        font-weight: 600;
+    }
+    .rights h3 {
+        font-size: 20px;
+        margin-top: 40px;
+        padding-bottom: 20px;
+    }
+    .footer-right p, .footer-right strong {
+        font-size: 20px;
+    }
+    .footer-left h3 {
+        font-size: 23px;
+    }
+    header nav ul li.active::after {
+        top: 85px;
+    }
+}
+@media screen and (min-width: 601px)  and (max-width: 1200px) {
+    .hero-info button:hover, .container button:hover, .tariff1 button:hover, 
+    .tariff2 button:hover, 
+    .tariff3 button:hover, 
+    .forma button:hover {
+        background: #4B0082; 
+        transform: scale(1); 
+    }
+    #listnav ul {
+        padding-top: clamp(70px, 6vh, 120px);
+        width: 250px;
+        right: -250px;
+        gap:30px;
+    }
+    #listnav ul li a {
+        font-size: clamp(25px, 2.5vh, 35px);
+        padding-left: 40px;
+    }
+    header nav ul li.active::after {
+        width: 40px;
+        left: 20px;
+    }
+    header nav ul li:not(.active):not(.btn) a:hover {
+        border-bottom: none;
+    }
+    header.head-container {
+        padding: 25px 0;
+    }
+    .container .logo, .fform .logo {
+        font-size: clamp(35px, 4vh, 50px);
+        letter-spacing: 1px;
+    }
+    .hero-info2{
+        display: none;
+    }
+    .hero.container {
+       display: flex;
+       position: relative;
+    }
+    .wrapper {
+        height: 90vh;
+        background-image: linear-gradient(
+        rgba(0, 0, 0, 0.5) 0%), url(img/background.png);
+    }
+    .hero-info {
+        position: absolute;
+        z-index: 6;
+        text-align: center;
+        width: 100%;
+        max-width: 650px;
+    }
+    .hero.container {
+       display: flex;
+       justify-content: center;
+       width: 100%;
+       height: 100%;
+    }
+    .hero.container img {
+       filter: brightness(0.5);
+       height: 90vh;
+       width: auto;
+       max-width: 90vw;
+    }
+    .hero-info h1{
+       padding: 30px 0 20px 0;
+       font-size: clamp(35px, 4.5vh, 65px);
+       color: #F0F0F0;
+    }
+    .hero-info h2{
+       font-size: clamp(30px, 3.5vh, 55px);
+       color: #F0F0F0;
+    }
+    .hero-info p,.hero-info b {
+       font-size: clamp(25px, 3vh, 45px);
+       color: #F0F0F0;
+       padding: 25px 0 35px 0;
+       line-height: 1.2;
+    }
+    .hero-info button, .container button, .forma button {
+       padding: clamp(10px, 1.3vh, 25px) clamp(20px, 2.5vw, 50px);
+       font-size: clamp(18px, 2.3vh, 30px);
+       letter-spacing: 1.5px;
+    }
+    .hero.container .hero-info button {
+        margin-top: 5px;
+        margin-bottom: 50px;
+    }
+    .toggle-menu:checked {
+        top: 20px;
+        right: 40px;
+    }
+    .toggle-menu {
+        width: clamp(40px, 4vh, 60px);
+        height: clamp(40px, 4vh, 60px);
+    }
+    #loop{
+        font-size: clamp(100px, 10vh, 200px);
+    }
+    .hamburger {
+        width: clamp(25px, 3vh, 50px);
+        height: clamp(4px, 0.5vh, 10px);
+    }
+    .hamburger:before {
+        width: clamp(35px, 4vh, 60px);
+        height: clamp(4px, 0.5vh, 10px);
+        top: clamp(-20px, -1.5vh, -10px);
+    }
+    .hamburger:after {
+        width: clamp(35px, 4vh, 60px);
+        height: clamp(4px, 0.5vh, 10px);
+        top: clamp(10px, 1.5vh, 20px);
+    }
+    main {
+        padding: 30px 0 60px 0;
+    }
+    .section {
+        margin-bottom: 40px;
+    }
+    .section h2 {
+        font-size: clamp(40px, 3.5vh, 55px);
+        padding-bottom: 20px;
+        font-weight: 600;
+    }
+    .section p {
+        font-size: clamp(25px, 3vh, 45px);
+    }
+    .steps-container {
+        margin: 40px auto 60px auto;
+        grid-template-rows: repeat(4, auto);
+        grid-template-columns: none;
+        max-width: clamp(550px, 55vh, 650px);
+    }
+    .step-card h3 {
+        font-size: clamp(30px, 3vh, 40px);
+   }
+    .step-card h4 {
+        font-size: clamp(29px, 3vh, 40px);   
+   }
+    .step-card p {
+        font-size: clamp(25px, 3vh, 30px);
+    }
+
+    .carousel {
+        overflow-x: auto;
+        scroll-snap-type: x mandatory; 
+        scroll-behavior: smooth;
+        -webkit-overflow-scrolling: touch; /* Плавный скролл на iOS */
+        margin-bottom: 60px;
+    }
+    .carousel .group:first-child {
+        padding: 4vw;  
+    }
+    .group {
+        animation: none;
+        padding-right: 0;
+        gap: 30px;
+    }
+    .carousel .group:nth-child(2) {
+        display: none;
+    }
+    .cards {
+        margin: 0 auto;
+        flex: 0 0 auto;
+        scroll-snap-align: center; /* Центрируем карточку при остановке свайпа */
+        height: auto;
+        min-height: 25em;
+    }
+    .cards h3 {
+        font-size: 25px;
+        padding: 15px 0 5px 0;
+    }
+    .cards p {
+        font-size: 23px;
+        padding: 15px 0;
+    }
+
+    .wrapper2>h2 {
+        font-size: clamp(40px, 3.5vh, 55px);
+        padding-bottom: 40px;
+        font-weight: 600;
+    }
+    #section3>.container {
+        flex-direction: column;
+    }
+    .card-back {
+        padding: 0 20px;
+    }
+    .card-front>h3 {
+        font-size: clamp(40px, 4vh, 60px);
+        color: black;
+    }
+    .card-front span{
+        color: black;
+    }
+    #section3>.container {
+        gap: 0;
+    }
+    .container button {
+        margin-bottom: 40px;
+        margin-top: 40px;
+    }
+    form {
+        width: 90vw;
+        max-width: 600px;
+        margin: 0 auto;
+        margin-top: 20px;
+    }
+    .form-container img {
+        display: none;
+    }
+     form .forma {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center; 
+    }
+    .forma h2 {
+        font-size: clamp(40px, 3.2vh, 50px);
+        padding: 20px 0 15px 0;
+    }
+    .forma h3 {
+        font-size: clamp(25px, 2vh, 45px);
+        margin: 0 0 30px 0;
+    }
+    .forma button {
+        margin-bottom: 0;
+    }
+    .fform {
+        flex-direction: column;
+        align-items: center;
+        gap: 60px;
+        padding: 30px 0;
+    }
+    .fform .logo {
+        display: block;
+        text-align: center;
+    }
+    .footer-right h2 {
+        font-size: clamp(28px, 2.5vh, 35px);
+    }
+    .rights h3 {
+        font-size: 23px;
+        margin-top: 60px;
+        padding-bottom: 20px;
+    }
+    .footer-right {
+        margin-top: 20px;
+    }
+    .footer-left h3 {
+        font-size: clamp(28px, 3vh, 35px);
+    }
+    .footer-right p, .footer-right strong {
+        font-size: 23px;
+    }
+    header nav ul li.active::after {
+        top: 105px;
+    }
+}
+@media screen and (min-width: 1201px) and (max-width: 1600px) {
+    .container .logo{
+        font-size: 35px;
+    }
+    .container {
+        max-width: 93vw;
+    }
+    header.head-container{
+         padding: 25px 0;
+    }
+    header nav ul {
+         gap: 3vw;
+    }
+    header nav ul li.btn a {
+        font-size: 23px;
+        padding: 13px 25px;
+    }
+    header nav ul li a {
+        font-size: 25px;
+    }
+    .hero-info h1 {
+        font-size: clamp(35px, 20px + 1.25vw, 40px);
+        padding: 20px 0 10px 0;
+    }
+    .hero-info h2 {
+        font-size: clamp(30px, 15px + 1.25vw, 35px);
+    }
+    .hero-info p, .hero-info b {
+        font-size: clamp(24px, 12px + 1vw, 28px);
+        padding: 10px 0 30px 0;
+    }
+    .hero-info2 {
+        width: 340px;
+    }
+    .hero.container img {
+        margin-top: -100px;
+        height: 90vh;
+    }
+    .hero-info button, .container button, .tariff1 button, .tariff2 button, .tariff3 button, .forma button {
+        font-size: clamp(18px, 12px + 0.5vw, 20px);
+        padding: 13px 25px;
+    }
+    .hero-info2 .list {
+        font-size: 23px;
+        padding-left: 50px;
+    }
+    #loop {
+        top: 8%;
+    }
+    main {
+        padding: 40px 0 80px 0;
+    }
+    .line {
+        width: 93vw;
+    }
+    .section {
+        margin-bottom: 40px;
+    }
+    .section h2 {
+        font-size: 40px;
+    }
+    .section p {
+        font-size: 25px;
+    }
+    .steps-container {
+        margin: 40px auto 60px auto;
+        max-width: 93vw;
+    }
+    .step-number {
+        font-size: 50px;
+    }
+    .step-card h3 {
+        font-size: 25px;
+    }
+    .step-card h4 {
+        font-size: 24px;
+    }
+    .step-card p {
+        font-size: 22px;
+    }
+    .carousel {
+        max-width: 93vw;
+        margin-bottom: 80px;
+    }
+    .wrapper2>h2 {
+        font-size: 40px;
+        padding-bottom: 30px;
+    }
+    #section3 {
+        max-width: 93vw;
+    }
+    .card-back>h4 {
+        font-size: 35px;
+    }
+    .card-back>h5 {
+        font-size: 28px;
+        padding: 20px 0 30px 0;
+    }
+    .card-back>ul li {
+        font-size: 23px;
+    }
+    .card-back {
+        padding: 0 20px;
+    }
+    .card-inner {
+        height: 500px;
+    }
+    .tariff1 button, .tariff2 button, .tariff3 button {
+        margin-top: 50px;
+    }
+    form {
+        margin-top: 80px;
+        max-width: 1100px;
+    }
+    .form-container {
+        padding: 0 40px;
+    }
+    .footer-left h3 {
+        text-align: left;
+    }
+    .wrapper {
+        max-height: 1050px;
+    }
+}
+@media screen and (min-width: 1601px) and (max-width: 1920px) {
+    .container .logo {
+        font-size: 40px;
+    }
+     header.head-container{
+         padding: 25px 0;
+    }
+    header nav ul {
+         gap: 3vw;
+    }
+    .hero-info h1 {
+        font-size: clamp(40px, -10.24px + 3.14vw, 50px);
+        padding: 0 0 10px 0;
+    }
+    .hero-info h2 {
+        font-size: clamp(35px, 9.87px + 1.57vw, 40px);
+    }
+    .hero-info p, .hero-info b {
+        font-size: clamp(28px, 17.94px + 0.63vw, 30px);
+        padding:15px 0 30px 0;
+    }
+    .hero-info button, .container button, .tariff1 button, .tariff2 button, .tariff3 button, .forma button {
+        padding: 14px 30px;
+    }
+    #loop {
+        top: 8%;
+    }
+    .hero.container img {
+        height: 95vh;
+    }
+    .step-number {
+        font-size: clamp(50px, -50.47px + 6.27vw, 70px);
+    }
+    .step-card h3 {
+        font-size: clamp(25px, 9.94px + 0.94vw, 28px);
+    }
+    .step-card h4 {
+        font-size: clamp(24px, 8.94px + 0.94vw, 27px);
+    } 
+    #section3 {
+        max-width: 90vw;
+    }
+    .footer-left h3 {
+        text-align: left;
+    }
+    .wrapper {
+        max-height: 1050px;
+    }
+}
+@media screen and (min-width: 1921px) {
+    .footer-left h3 {
+        text-align: left;
+    }   
+    .container, .section, .line, .steps-container, .carousel, .fform {
+        max-width: 1800px;
+    }
+    #section3 {
+        max-width: 1600px;
+    }
+    .wrapper {
+        max-height: 1050px;
+    }
+}
